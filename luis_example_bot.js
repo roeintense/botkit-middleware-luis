@@ -44,42 +44,42 @@
 
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-var Botkit = require("./lib/Botkit.js");
-var luis = require("./lib/luis-middleware.js");
+var Botkit = require('./lib/Botkit.js');
+var luis = require('./lib/luis-middleware.js');
 
 if (!process.env.token) {
-    console.log("Error: Specify token in environment");
-    process.exit(1);
+  console.log('Error: Specify token in environment');
+  process.exit(1);
 }
 
 if (!process.env.serviceUri) {
-    console.log("Error: Specify Luis service uri");
-    process.exit(1);
+  console.log('Error: Specify Luis service uri');
+  process.exit(1);
 }
 
 var luisOptions = { serviceUri: process.env.serviceUri };
 
 var controller = Botkit.slackbot({
-    debug: false
+  debug: false,
 });
 
 controller
-    .spawn({
-        token: process.env.token
-    })
-    .startRTM(function(err) {
-        if (err) {
-            throw new Error(err);
-        }
-    });
+  .spawn({
+    token: process.env.token,
+  })
+  .startRTM(function(err) {
+    if (err) {
+      throw new Error(err);
+    }
+  });
 
 controller.middleware.receive.use(luis.middleware.receive(luisOptions));
 
 controller.hears(
-    ["hello", "hi"],
-    ["direct_message", "direct_mention", "mention"],
-    luis.middleware.hearIntent,
-    function(bot, message) {
-        bot.reply(message, "Hello.");
-    }
+  ['hello', 'hi'],
+  ['direct_message', 'direct_mention', 'mention'],
+  luis.middleware.hearIntent,
+  function(bot, message) {
+    bot.reply(message, 'Hello.');
+  },
 );

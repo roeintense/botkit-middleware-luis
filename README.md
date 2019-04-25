@@ -1,4 +1,4 @@
-# Use Luis's natural language tools in your Botkit-powered Bot !
+# Use Luis's natural language tools in your Botkit-powered Bot!
 
 This middleware plugin for Botkit allows you to seamlessly integrate [Luis](http://luis.ai) natural language intent APIs into your Botkit bot.
 
@@ -24,7 +24,7 @@ The first step to using [Luis](http://luis.ai) is to create an application. In t
     <img src="https://s26.postimg.org/el6k8ijqx/createApp.png"/>
 </p>
 
-From your app's settings page, snag the service url. You will need this to use Luis's API.
+From your app's settings page, snag the service url. You will assign this to a meaningful environment variable in `.env` or however you do it. 
 
 Next you will need to add botkit-middleware-luis as a dependency to your Botkit bot:
 
