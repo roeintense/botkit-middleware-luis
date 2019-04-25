@@ -6,6 +6,13 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "prettier": {
+    "printWidth": 80,
+    "tabWidth": 2,
+    "singleQuote": true,
+    "endOfLine": "lf",
+    "trailingComma": "all"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Stevenic/botkit-middleware-luis.git"
@@ -23,5 +30,15 @@
   "homepage": "https://github.com/Stevenic/botkit-middleware-luis#readme",
   "dependencies": {
     "request": "^2.69.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^4.1.0",
+    "eslint-plugin-import": "^2.17.2",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-prettier": "^3.0.1",
+    "eslint-plugin-react": "^7.12.4",
+    "prettier": "^1.17.0"
   }
 }
